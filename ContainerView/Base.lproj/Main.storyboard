@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eOl-bl-R5h">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Parent View Controller-->
+        <scene sceneID="AlX-qN-Laf">
+            <objects>
+                <viewController storyboardIdentifier="ParentViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dxK-6i-byf" customClass="ParentViewController" customModule="ContainerView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rwv-YI-IyA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WP7-E8-WPR">
+                                <rect key="frame" x="140" y="353" width="134" height="30"/>
+                                <state key="normal" title="GoToSegmentedVC"/>
+                                <connections>
+                                    <action selector="btnGoToSegmentedVC_Clicked:" destination="dxK-6i-byf" eventType="touchUpInside" id="3bF-TV-Lro"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="WP7-E8-WPR" firstAttribute="centerY" secondItem="rwv-YI-IyA" secondAttribute="centerY" id="Ycn-bZ-WPS"/>
+                            <constraint firstItem="WP7-E8-WPR" firstAttribute="centerX" secondItem="rwv-YI-IyA" secondAttribute="centerX" id="lSo-fW-XlZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7ic-dr-weM"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="gXX-WX-iz6"/>
+                    <connections>
+                        <outlet property="btnGoToSegmentedVC" destination="WP7-E8-WPR" id="GJu-VO-Cug"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iE6-cM-ksI" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="980" y="28.335832083958024"/>
+        </scene>
+        <!--Segmented Control View Controller-->
+        <scene sceneID="A2u-fb-p1R">
+            <objects>
+                <viewController storyboardIdentifier="SegmentedControlViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gE3-Ke-6Il" customClass="SegmentedControlViewController" customModule="ContainerView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kxl-sx-2k2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="PMU-1c-JU9">
+                                <rect key="frame" x="150.66666666666666" y="10" width="112.99999999999997" height="32"/>
+                                <segments>
+                                    <segment title="Red"/>
+                                    <segment title="Green"/>
+                                </segments>
+                            </segmentedControl>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ec-Sk-syU">
+                                <rect key="frame" x="10" y="51" width="394" height="332.66666666666669"/>
+                                <connections>
+                                    <segue destination="Is0-uz-GQc" kind="embed" identifier="red" id="u1W-mB-8Pt"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s3C-9x-en7">
+                                <rect key="frame" x="10" y="393.66666666666674" width="394" height="332.33333333333326"/>
+                                <connections>
+                                    <segue destination="han-i5-tR6" kind="embed" identifier="green" id="08r-ap-tEa"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="s3C-9x-en7" firstAttribute="width" secondItem="5ec-Sk-syU" secondAttribute="width" id="6NF-jA-CGl"/>
+                            <constraint firstItem="s3C-9x-en7" firstAttribute="top" secondItem="5ec-Sk-syU" secondAttribute="bottom" constant="10" id="8yb-u7-lp2"/>
+                            <constraint firstItem="DIk-wU-A5X" firstAttribute="trailing" secondItem="s3C-9x-en7" secondAttribute="trailing" constant="10" id="ETj-g2-BHe"/>
+                            <constraint firstItem="PMU-1c-JU9" firstAttribute="centerX" secondItem="kxl-sx-2k2" secondAttribute="centerX" id="LyL-sE-Mmt"/>
+                            <constraint firstItem="s3C-9x-en7" firstAttribute="top" secondItem="5ec-Sk-syU" secondAttribute="bottom" constant="10" id="Osn-cB-JPW"/>
+                            <constraint firstItem="DIk-wU-A5X" firstAttribute="trailing" secondItem="5ec-Sk-syU" secondAttribute="trailing" constant="10" id="WGE-Iw-1Uz"/>
+                            <constraint firstItem="s3C-9x-en7" firstAttribute="height" secondItem="5ec-Sk-syU" secondAttribute="height" id="Wls-yD-Pev"/>
+                            <constraint firstItem="s3C-9x-en7" firstAttribute="leading" secondItem="DIk-wU-A5X" secondAttribute="leading" constant="10" id="Zo4-Ow-eon"/>
+                            <constraint firstItem="5ec-Sk-syU" firstAttribute="top" secondItem="PMU-1c-JU9" secondAttribute="bottom" constant="10" id="fUb-K6-PJY"/>
+                            <constraint firstItem="DIk-wU-A5X" firstAttribute="bottom" secondItem="s3C-9x-en7" secondAttribute="bottom" constant="10" id="kTk-Bv-jfH"/>
+                            <constraint firstItem="5ec-Sk-syU" firstAttribute="leading" secondItem="DIk-wU-A5X" secondAttribute="leading" constant="10" id="mKB-3c-EUU"/>
+                            <constraint firstItem="PMU-1c-JU9" firstAttribute="top" secondItem="DIk-wU-A5X" secondAttribute="top" constant="10" id="qV5-ml-E4c"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="DIk-wU-A5X"/>
+                    </view>
+                    <connections>
+                        <outlet property="containerViewFirst" destination="5ec-Sk-syU" id="SEg-jk-ELF"/>
+                        <outlet property="containerViewSecond" destination="s3C-9x-en7" id="0ji-xv-wVg"/>
+                        <outlet property="segmentedControl" destination="PMU-1c-JU9" id="1X1-mY-2Ck"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AhD-x8-lnd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1655.2" y="29.23538230884558"/>
+        </scene>
+        <!--Red View Controller-->
+        <scene sceneID="gG5-cY-K7N">
+            <objects>
+                <viewController storyboardIdentifier="RedViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Is0-uz-GQc" customClass="RedViewController" customModule="ContainerView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JrB-89-JIT">
+                        <rect key="frame" x="0.0" y="0.0" width="394" height="332.66666666666669"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="48B-NZ-Xn0"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BOk-cT-L4c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2473" y="-143"/>
+        </scene>
+        <!--Green View Controller-->
+        <scene sceneID="vnY-PD-5mA">
+            <objects>
+                <viewController storyboardIdentifier="GreenViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="han-i5-tR6" customClass="GreenViewController" customModule="ContainerView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yb0-tt-vll">
+                        <rect key="frame" x="0.0" y="0.0" width="394" height="332.33333333333331"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="WML-du-Zhv"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YKq-J0-2bo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2473" y="212"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8qV-Kl-5Vz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eOl-bl-R5h" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cbK-Oc-XAo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dxK-6i-byf" kind="relationship" relationship="rootViewController" id="5n4-kT-37j"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lhc-R9-1xf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="236" y="27"/>
+        </scene>
+    </scenes>
+</document>
